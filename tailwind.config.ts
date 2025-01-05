@@ -33,6 +33,11 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
       },
+      fontFamily: {
+        sans: ['"JetBrains Mono"', '"Noto Sans SC"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        chinese: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [typography],

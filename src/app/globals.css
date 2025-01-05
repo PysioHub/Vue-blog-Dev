@@ -1,23 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+/* 字体声明 */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  html {
+    font-family: 'Noto Sans SC', system-ui, sans-serif;
   }
-}
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* 英文和代码使用等宽字体 */
+  .font-mono,
+  code,
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* 中文使用思源黑体 */
+  .font-chinese {
+    font-family: 'Noto Sans SC', system-ui, sans-serif;
+  }
 }
 
 @keyframes fadeIn {

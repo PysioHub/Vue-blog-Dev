@@ -1,9 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Pysio's Blog",
@@ -16,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" className={inter.className}>
-      <body>
+    <html lang="zh">
+      <body className="font-sans text-base">
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <div className="flex-grow animate-fade-in">
