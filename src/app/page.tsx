@@ -1,41 +1,64 @@
 import { getAllPosts } from '@/lib/api';
+import { Navbar } from '@/components/Navbar';
 import Link from 'next/link';
 
 export default async function Home() {
   const posts = await getAllPosts();
 
   return (
-    <div className="min-h-screen p-8 pb-20 gap-8 sm:p-20">
-      <header className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">我的博客</h1>
-        <p className="text-gray-600 dark:text-gray-400">分享技术与生活</p>
-      </header>
-
-      <main className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow"
-          >
-            <Link href={`/post/${post.slug}`}>
-              <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{post.excerpt}</p>
-              <div className="flex gap-2">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      
+      <main className="flex-grow">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:to-gray-500">
+                  Pysio&apos;s Home
+                </h1>
+                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                  一个温暖的家
+                </p>
               </div>
-              <time className="text-sm text-gray-500 mt-4 block">
-                {new Date(post.date).toLocaleDateString()}
-              </time>
-            </Link>
-          </article>
-        ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="container px-4 md:px-6 mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post, index) => (
+              <Link 
+                key={post.slug} 
+                href={`/post/${post.slug}`}
+                className="group relative rounded-lg border p-6 hover:border-blue-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl animate-fade-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <article>
+                  <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <time className="text-sm text-gray-500">
+                    {new Date(post.date).toLocaleDateString()}
+                  </time>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -1,22 +1,21 @@
 ---
-title: '欢迎来到我的博客'
-date: '2024-01-10'
-excerpt: '这是我的第一篇博客文章'
-tags: ['介绍', '博客']
+title: 'Hello World'
+date: '2024-01-15'
+excerpt: '第一篇博客文章'
+category: '技术'
+tags: ['Next.js', '前端']
 ---
 
-# 欢迎来到我的博客
+# Hello World
 
-这是使用Next.js和Tailwind CSS构建的博客系统。
+这是第一篇博客文章，使用 Next.js 构建。
 
-## 特性
+## 功能特性
 
-- Markdown支持
-- 语法高亮
+- Markdown 支持
+- 代码高亮
 - 标签系统
-- 响应式设计
-
-## 代码示例
+- 分类管理
 
 ```javascript
 console.log('Hello, World!');

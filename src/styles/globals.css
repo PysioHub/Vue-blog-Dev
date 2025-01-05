@@ -1,0 +1,44 @@
+/* Tailwind 基础样式 */
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+/* 自定义变量 */
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+/* 暗色主题 */
+[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+/* 基础样式 */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 动画 */
+.animate-fade-up {
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+}
