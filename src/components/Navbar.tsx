@@ -17,7 +17,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-40 w-full backdrop-blur border-b border-slate-50/[0.06] bg-white/75 dark:bg-black/75 transition-colors duration-500">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center space-x-3">
-          <span className="self-center text-xl font-semibold whitespace-nowrap">Blog</span>
+          <span className="self-center text-xl font-semibold whitespace-nowrap"> Pysio&apos;s Home</span>
         </Link>
         
         <button

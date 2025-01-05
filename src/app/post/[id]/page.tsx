@@ -1,6 +1,7 @@
 import { getPostBySlug } from '@/lib/api';
 import { Markdown } from '@/components/Markdown';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 interface PostPageProps {
   params: Promise<{
@@ -26,18 +27,25 @@ export default async function PostPage({ params }: PostPageProps) {
       <article className="max-w-3xl mx-auto p-8">
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-4 items-center">
             <time className="text-gray-500">
               {new Date(post.date).toLocaleDateString()}
             </time>
+            <Link
+              href={`/category/${post.category}`}
+              className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+            >
+              {post.category}
+            </Link>
             <div className="flex gap-2">
               {post.tags.map((tag) => (
-                <span
+                <Link
                   key={tag}
-                  className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm"
+                  href={`/tags/${tag}`}
+                  className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                  {tag}
-                </span>
+                  #{tag}
+                </Link>
               ))}
             </div>
           </div>

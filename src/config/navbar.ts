@@ -17,11 +17,11 @@ export const navbar: NavItem[] = [
     children: [
       {
         text: "技术",
-        link: "/category/tech",
+        link: "/category/技术",
       },
       {
         text: "生活",
-        link: "/category/life",
+        link: "/category/生活",
       },
     ],
   },
