@@ -1,6 +1,6 @@
 ---
 title: 'Hello World'
-date: '2024-01-15'
+date: '2024-01-01'
 excerpt: '第一篇博客文章'
 category: '技术'
 tags: ['Next.js', '前端']
